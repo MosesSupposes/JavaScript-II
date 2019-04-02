@@ -96,19 +96,34 @@ console.log('Challenge 4: \n', challenge4(getRunners()));
 
 // Problem 1
 
-// helpers 
+// helper
 const genRandAge = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
-const isOldEnoughToRun = x => x.age > 16
 
-const runnersWithAge = () => getRunners().map(
-    runner => ({ ...runner, age: genRandAge(1, 65) })
-)
-
-function challenge5a(listOfRunners) {
-    return listOfRunners.filter(isOldEnoughToRun)
+function challenge5a() {
+    return getRunners().map( runner => ({ ...runner, age: genRandAge(1, 65) }) )
 }
-console.log('Challenge5a: \n', challenge5a(runnersWithAge()))
+console.log('Challenge 5a: \n', challenge5a())
+
 
 // Problem 2
 
+// helpers 
+const runnersWithAge = challenge5a()
+const isOldEnoughToRun = x => x.age > 16
+
+function challenge5b(listOfRunners) {
+    return listOfRunners.filter(isOldEnoughToRun)
+}
+console.log('Challenge5b: \n', challenge5b(runnersWithAge))
+
+
 // Problem 3
+
+// helper
+const generousDonors = x => x.donation > 100
+
+function challenge5c(runners) {
+    return runners.filter(generousDonors)
+}
+console.log('Challenge 5c', challenge5c(runnersWithAge))
+
