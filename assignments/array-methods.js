@@ -96,6 +96,18 @@ console.log('Challenge 4: \n', challenge4(getRunners()));
 
 // Problem 1
 
+// helpers 
+const genRandAge = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+const isOldEnoughToRun = x => x.age > 16
+
+const runnersWithAge = () => getRunners().map(
+    runner => ({ ...runner, age: genRandAge(1, 65) })
+)
+
+function challenge5a(listOfRunners) {
+    return listOfRunners.filter(isOldEnoughToRun)
+}
+console.log('Challenge5a: \n', challenge5a(runnersWithAge()))
 
 // Problem 2
 
