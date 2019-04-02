@@ -61,5 +61,25 @@ function removeDuplicates(cb, arr) {
 
   return cb(uniqueVals)
 }
-
 console.log('removeDuplicates: [* x1000]', removeDuplicates(identity, Array(1000).fill('*')))
+
+/* Bonus Stretch (because I'm a code addict) */
+
+const removeDuplicatesEasyPeasyLemonSqueezy = (cb, arr) => cb(new Set(arr)) 
+// BAM! ES6 BABY!
+
+const lilPumpsMostPopularSongInItsEntirety = repeat(" Gucci Gang ", 100) // (at least...)
+
+console.log('removeDuplicates: [Gucci Gang x100]', removeDuplicatesEasyPeasyLemonSqueezy(identity, lilPumpsMostPopularSongInItsEntirety))
+
+
+
+function repeat(str, numTimes) {
+  const acc = [];
+  return (function again(repetitions) {
+    "use strict" // enables TCO
+    if (repetitions === numTimes) return acc
+    acc.push(str)
+    return again(repetitions + 1)
+  })(0)
+}
